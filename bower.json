@@ -1,0 +1,29 @@
+{
+  "name": "uberalles",
+  "private": true,
+  "dependencies": {
+    "bootstrap-sass": "~3.3.5",
+    "leaflet": "~0.7.5",
+    "modernizr": "~2.8.1",
+    "react": "~0.13.3"
+  },
+  "overrides": {
+    "bootstrap-sass": {
+      "main": [
+        "assets/stylesheets/_bootstrap.scss",
+        "assets/fonts/bootstrap/*",
+        "assets/javascripts/bootstrap.js"
+      ]
+    },
+    "react": {
+      "main": [
+        "react.js",
+        "JSXTransformer.js"
+      ]
+    }
+  },
+  "devDependencies": {
+    "chai": "~3.2.0",
+    "mocha": "~2.3.2"
+  }
+}
