@@ -100,4 +100,45 @@ html, body, #map {
     height: 100%;
 }
 
-#configForm{ margin-bottom:30px;}
+.infobox-wrapper{
+  display: flex;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0px 2px 1px #ececec;
+  position: absolute;
+  bottom: 25px;
+  right: 10px;
+  max-width:300px;
+  padding: 10px;
+  border: 1px solid #e0dfdf;
+  font-weight: 300;
+  color: #333;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  #infoBox{
+    position: relative;
+    cursor: auto;
+    z-index: 7;
+    pointer-events: auto;
+    input, button{
+        font-size:16px;
+        width:130px;
+    }
+  }
+}
+
+main{
+  display: inline;
+  .loader {
+    width:40px;
+    height:40px;
+    line-height: 70px;
+    background: rgba(255, 255, 255, 0.7);
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 9999;
+    border: 1px solid #e0dfdf;
+  }
+}

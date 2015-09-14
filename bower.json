@@ -5,7 +5,8 @@
     "bootstrap-sass": "~3.3.5",
     "leaflet": "~0.7.5",
     "modernizr": "~2.8.1",
-    "react": "~0.13.3"
+    "react": "~0.13.3",
+    "react-loader": "~1.2.0"
   },
   "overrides": {
     "bootstrap-sass": {
