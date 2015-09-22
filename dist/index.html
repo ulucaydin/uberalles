@@ -1,0 +1,12 @@
+<!doctype html> <html class=no-js> <head> <meta charset=utf-8> <meta name=description> <meta name=viewport content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> <title>San Francisco Trucks Mapper</title> <link rel=apple-touch-icon href=apple-touch-icon.png>  <link rel=stylesheet href=styles/vendor.css> <link rel=stylesheet href=styles/main.css> <script src=scripts/vendor/modernizr.js></script> <script>
+    var app = app || {};
+    (function () {
+      app.MAPBOX_ACCESS_TOKEN = "pk.eyJ1IjoidWx1Y2F5ZGluIiwiYSI6IjYxYjUzNmUxNTg3YTc2ODUyMzA4OGE5MDdjZDdhNzVhIn0.WaoiG9NNPElfjTdvFOYQ1g";
+      app.MAPBOX_ACCESS_ID = 'ulucaydin.cieefr4z2027zs6lzn8v4v9ez';
+      app.MAPBOX_TILE_STR = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}';
+      app.SFGOV_API_URL = 'https://data.sfgov.org/resource/rqzj-sfat.json';
+      app.GITHUB_URL = 'https://github.com/ulucaydin/uberalles';
+    })();
+    </script> </head> <body> <!--[if lt IE 10]>
+ <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+ <![endif]--> <script src=scripts/vendor.js></script> <script src=scripts/plugins.js></script> <script src=scripts/main.js></script> <script type=text/jsx> React.render( <Map lat="37.7833" lng="-122.4167" id="map" />, document.body ); </script> </body> </html> 
