@@ -1,0 +1,15 @@
+mongodb:
+  image: mongo:3.1.7
+  ports:
+    - "27017:27017"
+
+rabbitmq:
+  image: rabbitmq:3.5.4
+  ports:
+    - "5672:5672"
+
+celery:
+  links:
+    - rabbitmq:rabbit
+    - mongodb:mongoserver  
+  build: task

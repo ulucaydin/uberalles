@@ -1,0 +1,37 @@
+mongodb:
+  image: mongo:3.1.7
+  container_name: uberalles_mongo
+  ports:
+    - "27017:27017"
+
+rabbitmq:
+  image: rabbitmq:3.5.4
+  container_name: uberalles_rabbit
+  ports:
+    - "5672:5672"
+    - "15672:15672" # optional`
+
+celery:
+  build: task
+  links:
+    - rabbitmq:rabbit
+    - mongodb:mongo
+
+web:
+  build: web
+  links:
+    - mongodb:mongo
+  ports:
+    - "5000:5000"
+
+
+nginx:
+  image: nginx:1.9.5
+  container_name: uberalles_nginx
+  links:
+    - web:web
+  volumes:
+    - ./dist:/dist:ro
+    - ./nginx.conf:/etc/nginx/nginx.conf:ro
+  ports:
+    - 80:80

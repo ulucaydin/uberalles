@@ -48,27 +48,29 @@ var Map = React.createClass({displayName: "Map",
 
   loadData: function() {
     this.setState({loaded:false});
-    var params = '?$where=within_circle(location,%20'+ this.props.lat +',%20'+ this.props.lng +',%20'+ this.state.radius +')';
     var that = this;
-    $.get(app.SFGOV_API_URL+params, function(res) {
+    $.get(app.API_URL+'/trucks', { lat: this.props.lat, lng: this.props.lng, radius: this.state.radius },
+    function(res) {
       for (var i=0; i < res.length; i++) {
 
-        if (!(res[i].objectid in that.props.trucks) && typeof(res[i].location) !== 'undefined'){
-            that.props.trucks[res[i].objectid] = res[i];
-            var marker = L.marker([res[i].location.latitude, res[i].location.longitude]);
+        if (!(res[i]._id in that.props.trucks) && typeof(res[i].coordinates) !== 'undefined'){
+            that.props.trucks[res[i]._id] = res[i];
+            var marker = L.marker([res[i].coordinates[1], res[i].coordinates[0]]);
+
             marker.bindPopup(React.renderToStaticMarkup(
               <div>
-                <h5>{res[i].applicant} <small>{res[i].dayshours}</small></h5>
-                {res[i].fooditems}<br/>
+                <h5>{res[i].properties.applicant}<br/> <small>{res[i].properties.dayshours}</small></h5>
+                {res[i].properties.fooditems}<br/>
                 <ul>
-                  <li><b>Type:</b> {res[i].facilitytype}</li>
-                  <li><b>Address:</b> {res[i].fooditems}</li>
-                  <li><b>Location Description:</b> {res[i].locationdescription}</li>
+                  <li><b>Type:</b> {res[i].properties.facilitytype}</li>
+                  <li><b>Address:</b> {res[i].properties.fooditems}</li>
+                  <li><b>Location Description:</b> {res[i].properties.locationdescription}</li>
                 </ul>
-                <a href={res[i].schedule}>Download Schedule</a>
+                <a href={res[i].properties.schedule}>Download Schedule</a>
               </div>
             ));
             marker.addTo(that.map);
+
         }
       }
     }.bind(this))

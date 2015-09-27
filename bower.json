@@ -11,9 +11,7 @@
   "overrides": {
     "bootstrap-sass": {
       "main": [
-        "assets/stylesheets/_bootstrap.scss",
-        "assets/fonts/bootstrap/*",
-        "assets/javascripts/bootstrap.js"
+        "assets/stylesheets/_bootstrap.scss"
       ]
     },
     "react": {
