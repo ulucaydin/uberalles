@@ -16,7 +16,7 @@ An experimental webapp to discover food trucks of San Francisco. It uses the SFg
 - Docker (Containerization of everything)
 - Flask (Python based microframework)
 - Celery (Asyncronous task queue)
-- Rabbitqa (Message broker)
+- RabbitMQ (Message broker)
 - MongoDB (storing JSON data)
 - Nginx (Serving application and statics)
 - Gunicorn (wsgi)
