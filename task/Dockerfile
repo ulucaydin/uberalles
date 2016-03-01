@@ -1,4 +1,4 @@
-FROM ubuntu:14.10
+FROM ubuntu:trusty
 MAINTAINER Uluc Aydin "hi@ulucaydin.com"
 
 # install dependencies
