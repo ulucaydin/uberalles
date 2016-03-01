@@ -1,4 +1,4 @@
-FROM ubuntu:14.10
+FROM ubuntu:trusty
 MAINTAINER Uluc Aydin "hi@ulucaydin.com"
 
 # install dependencies
@@ -13,7 +13,7 @@ ADD . /code/
 RUN pip install -r /code/requirements.txt
 
 # Set celery_user and give privilidges
-RUN adduser celery_user --disabled-password &&\
+RUN useradd celery_user -ms /bin/bash &&\
     chown -R celery_user:celery_user /code &&\
     chmod 755 /code/*
 
