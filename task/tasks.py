@@ -27,7 +27,7 @@ def fetch_data(api_url):
     """
     GET trucks from SFGOV API and returns the geojson as a list of dictionaries.
     """
-    r = requests.get(api_url)
+    r = requests.get(api_url, verify=False)
     if r.status_code == requests.codes.ok:
         return [ to_geojson(i) for i in r.json() if "location" in i ]
     else:
